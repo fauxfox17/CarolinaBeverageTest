@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Carolina Social Media Login Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <style>
+    body {font-family: "Lato", sans=serif}
+    .mySlides {display: none}
+  </style>
+  <body>
+    <!-- Page content -->
+    <div class="w3-content" style="max-width: 2000px;margin-top: 46px;"></div>
+    <!-- Login Section -->
+    
+    <div class="jumbotron bg-transparent text-center">
+      <div ngIf="!user" class="card text-center">
+        <h6 class="card-header">
+          Social Login Demo for Carolina Beverage
+        </h6>
+        <div class="card-block">
+          <h4 class="card-title"> Not signed in</h4>
+          <p class="card-text"> Sign in with</p>
+        </div>
+        <div class="card-block">
+          <button class="btn btn-primary my-2 mr-3" (click)="signInWithFB()">
+        Sign in with Facebook
+        </button>
+          <button class="btn btn-primary my-2" (click)="signInWithGoogle()">
+        Sign in with Google 
+          </button>
+        </div>
+      </div>
+      <div *ngIf="user" class="card text-center">
+        <h6 class="card-header">
+          Social Login Demo for Carolina Beverage
+        </h6>
+        <div class="card-block"></div>
+        <img class="card-img-top img-responsive photo" src="{{ Socialuser.photoUrl }}" />
+        <div class="card-block">
+          <h4 class="card-title">{{ Socialuser.name }}</h4>
+          <p class="card-text">{{ Socialuser.email }}</p>
+          </div>
+          <div class="card-block">
+            <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+            </div>
+          </div>
+        </div>
+        <noscript>Javascript must be enabled to continue</noscript>
+        <div id="whitescreen" class="whitescreen">
+          <div class="whitescreen-top"><p class="whitescreen-icon">:-(</p
+            ><p class="whitescreen-message"> 
+              It looks like the application is not working properly on this device. 
+              Please send us a screenshot of this message, so that I can help you:</p>
+              <p class="whitescreen-email">info@stevenabolin.com</p>
+            </div>
+            <div class="whitescreen-bottom">
+              <p id="whitescreen-stack"></p>
+            </div>
+          </div>
+        <script>
+          var WHITESCREEN_EMPTY_APP_ROOT_DELAY = 8000;
+          var WHITESCREEN_ERROR_DELAY = 5000;
+          function showWhitescreenError(e){console.error(e);var r=document.getElementById("whitescreen");"block"!==r.style.display&&(document.getElementById("whitescreen-stack").innerHTML=e.stack.replace(/\n/g,"<br/>"),r.style.display="block",document.body.style.display="block")}window.addEventListener("error",function(e){setTimeout(()=>{showWhitescreenError(e.error)},WHITESCREEN_ERROR_DELAY)}),setTimeout(function(){document.getElementsByTagName("app-root")[0].children.length||showWhitesreenError(new Error("Empty app-root"))},WHITESCREEN_EMPTY_APP_ROOT_DELAY);  
+           </script>
+  </body>
+</html>
